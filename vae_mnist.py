@@ -11,9 +11,9 @@ Reference:
 import cslab_environ
 
 from data_api import mnist
-from utils import log_manager
 from utils import logger
 from utils import saver
+from utils.log_manager import LogManager
 from utils.time_series_logger import TimeSeriesLogger
 import argparse
 import datetime
@@ -413,6 +413,7 @@ if __name__ == '__main__':
         decoder_image_fname = os.path.join(logs_folder, 'decoder.png')
         gen_image_fname = os.path.join(logs_folder, 'gen.png')
         registered_image = False
+        log_manager = LogManager(logs_folder)
         log_manager.register(log.filename, 'plain', 'Raw logs')
 
         log.info(
